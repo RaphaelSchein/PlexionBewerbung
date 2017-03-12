@@ -3,17 +3,17 @@
     $builder = new Builder();
     $builder->buildHead();
     if (!isset($_SESSION['step'])){
-        $_SESSION["step"] = "0";
+        $_SESSION["step"] = 1;
         $builder->firstPage();
         return;
     }
     switch ($_SESSION['step']){
-        case "0":
-            $builder->firstPage();
-            break;
+
+
 
         case "1":
-
+            $builder->firstPage();
+            $builder->buildFoot();
             break;
 
         case "2":
