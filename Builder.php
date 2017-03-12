@@ -136,12 +136,12 @@
             echo '<form action="sel.php" method="get">
             <p>Welche der Folgen Sachen beherscht du?</p>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="java">
-                    <input type="checkbox" name="java" id="java" class="mdl-checkbox__input">
+                    <input type="checkbox" name="java" id="JAVA" class="mdl-checkbox__input">
                     <span class="mdl-checkbox__label">Java </span>
             </label>
                 <br>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="php">
-                <input type="checkbox" name="php" id="php" class="mdl-checkbox__input">
+                <input type="checkbox" name="php" id="PHP" class="mdl-checkbox__input">
                 <span class="mdl-checkbox__label">PHP</span>
             </label>
                 <br>
@@ -151,12 +151,12 @@
             </label>
                 <br>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="mysql">
-                <input type="checkbox" name="mysql" id="mysql" class="mdl-checkbox__input">
+                <input type="checkbox" name="mysql" id="MYSQL" class="mdl-checkbox__input">
                 <span class="mdl-checkbox__label">MySQL / MongoDB</span>
             </label>
                 <br>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="git">
-                <input type="checkbox" name="git" id="git" class="mdl-checkbox__input">
+                <input type="checkbox" name="git" id="GIT" class="mdl-checkbox__input">
                 <span class="mdl-checkbox__label">Git</span>
             </label>
                 <br>
@@ -178,8 +178,8 @@
                 <br>
 
                 <div class="style-textfield mdl-textfield mdl-js-textfield">
-                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "SelbstBeschreibung" id="ProgrammierFähigkeiten" ></textarea>
-                    <label class="mdl-textfield__label" for="SelbstBeschreibung">Beschreibe deine Programmier Fähigkeiten und zeige deine Grenzen auf.  </label>
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "ProgrammierFähigkeiten" id="ProgrammierFähigkeiten" ></textarea>
+                    <label class="mdl-textfield__label" for="ProgrammierFähigkeiten">Beschreibe deine Programmier Fähigkeiten und zeige deine Grenzen auf.  </label>
                 </div>
                 <br>
 
@@ -210,5 +210,56 @@
                 </button>
                 </form>';
         }
+
+        public function buildThird(){
+            echo '<form action="sel.php" method="get">
+                <br>
+                <div class="style-textfield mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "SelbstBeschreibung" id="SelbstBeschreibung" ></textarea>
+                    <label class="mdl-textfield__label" for="SelbstBeschreibung">Beschreibe dich</label>
+                </div>
+                <br>
+
+                <div class="style-textfield mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "SundS" id="SundS" ></textarea>
+                    <label class="mdl-textfield__label" for="SundS">Deine Stärken und Schwächen</label>
+                </div>
+                <br>
+
+                <div class="style-textfield mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "Faehigkeiten" id="Faehigkeiten" ></textarea>
+                    <label class="mdl-textfield__label" for="Faehigkeiten">Beschreibe deine Fähigkeiten und zeige deine Grenzen auf.  </label>
+                </div>
+                <br>
+
+                <div class="style-textfield mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "Wieso" id="Wieso" ></textarea>
+                    <label class="mdl-textfield__label" for="Wieso">Wieso willst du ausgerechnet auf diesem Server eine Stelle bekommen?</label>
+                </div>
+                <br>
+
+                <div class="style-textfield mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "WiesoDU" id="WiesoDU" ></textarea>
+                    <label class="mdl-textfield__label" for="WiesoDU">Wieso sollten wir und für dich entscheiden</label>
+                </div>
+               <br>
+                <div class="style-textfield mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name = "Referenz" id="Referenz" ></textarea>
+                    <label class="mdl-textfield__label" for="Referenz">Referenzen</label>
+                </div>
+                <br>
+            <div class="style-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" name="OnlineTime" id="OnlineTime">
+                <label class="mdl-textfield__label" for="OnlineTime">Wie viele Online Stunden hast du in der Woche ?</label>
+            </div>
+                <br>
+                <br> <br>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+                    Next
+                </button>
+                </form>';
+        }
+
+
 
     }

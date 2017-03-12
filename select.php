@@ -1,16 +1,10 @@
 <?php
-    //include 'functions.php';
+    include 'functions.php';
     session_start();
-    //$functions = new functions();
-    //$sel = new select();
+    $functions = new functions();
+    $sel = new select();
 
-    print_r($_GET);
-    print_r($_POST);
-    echo "===============================================";
-    print_r($_SESSION);
-   // if ($functions->verfiySVariable($_SESSION['step'])){
-
-   /* if (false){
+    if ($functions->verfiySVariable("step")){
         switch ($_SESSION['step']){
             case 1:
                 $sel->verifyFirstStep();
@@ -23,13 +17,13 @@
         }
         header("Location: index.php?p=1");
 
-    }if (false){
+    }else{
        if ($functions->verfiyPVariable("rang")){
            $sel->verifyFirstStep();
        }else {
            header("Location: index.php?p=1");
        }
-    }*/
+    }
 class select{
     public function verifyFirstStep(){
         $functions = new functions();
@@ -70,7 +64,62 @@ class select{
     public function verifyThirdStep(){
         switch (strtolower($_SESSION['rang'])){
             case "developer":
+                $this->verifyDev();
+                break;
+        }
+        $this->verifyThird();
+    }
 
+
+    private function verifyDev(){
+        $funktions = new functions();
+        if ($funktions->verfiyPVariable("JAVA")){
+            $_SESSION['java'] = true;
+        }else{
+            $_SESSION['java'] = false;
+        }
+        if ($funktions->verfiyPVariable("GIT")){
+            $_SESSION['git'] = true;
+        }else{
+            $_SESSION['git'] = false;
+        } if ($funktions->verfiyPVariable("PHP")){
+            $_SESSION['php'] = true;
+        }else{
+            $_SESSION['php'] = false;
+        } if ($funktions->verfiyPVariable("MYSQL")){
+            $_SESSION['myslq'] = true;
+        }else{
+            $_SESSION['mysql'] = false;
+        }
+        if ($funktions->verfiyPVariable("C")){
+            $_SESSION['c'] = true;
+        }else{
+            $_SESSION['c'] = false;
+        }
+        if ($funktions->verfiyPVariable("WieLang")&&$funktions->verfiyPVariable("SelbstBeschreibung") && $funktions->verfiyPVariable("SundS") && $funktions->verfiyPVariable("ProgrammierFähigkeiten") && $funktions->verfiyPVariable("Wieso") && $funktions->verfiyPVariable("WiesoDU") && $funktions->verfiyPVariable("Referenz") && $funktions->verfiyPVariable("OnlineTime")){
+
+            $_SESSION['WieLang'] = $this->getPost("WieLang");
+            $_SESSION['SelbstBeschreibung'] = $this->getPost("SelbstBeschreibung");
+            $_SESSION['SundS'] = $this->getPost("SundS");
+            $_SESSION['ProgrammierFähigkeiten'] = $this->getPost("ProgrammierFähigkeiten");
+            $_SESSION['Wieso'] = $this->getPost("Wieso");
+            $_SESSION['WiesoDU'] = $this->getPost("WiesoDU");
+            $_SESSION['Referenz'] = $this->getPost("Referenz");
+            $_SESSION['OnlineTime'] = $this->getPost("OnlineTime");
+        }
+    }
+
+    private function verifyThird(){
+        $funktions = new functions();
+        if ($funktions->verfiyPVariable("SelbstBeschreibung") && $funktions->verfiyPVariable("SundS") && $funktions->verfiyPVariable("Faehigkeitens") && $funktions->verfiyPVariable("Wieso") && $funktions->verfiyPVariable("WiesoDU") && $funktions->verfiyPVariable("Referenz") && $funktions->verfiyPVariable("OnlineTime")){
+
+            $_SESSION['SelbstBeschreibung'] = $this->getPost("SelbstBeschreibung");
+            $_SESSION['SundS'] = $this->getPost("SundS");
+            $_SESSION['Faehigkeiten'] = $this->getPost("Faehigkeiten");
+            $_SESSION['Wieso'] = $this->getPost("Wieso");
+            $_SESSION['WiesoDU'] = $this->getPost("WiesoDU");
+            $_SESSION['Referenz'] = $this->getPost("Referenz");
+            $_SESSION['OnlineTime'] = $this->getPost("OnlineTime");
         }
     }
 
