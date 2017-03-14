@@ -123,4 +123,41 @@ class select{
         }
     }
 
+    private function call(){
+
+
+        echo 'Bewerbung des Users '.$_SESSION['mcname']." für den Rang ".$_SESSION['rang']."<br>";
+
+        echo 'Daten: <br>';
+        echo 'Name: '.$_SESSION['vorname']." ".$_SESSION['nachname'];
+        $this->e();
+        echo 'Username: '.$_SESSION['mcname'];$this->e();
+        echo 'Alter: '.$_SESSION['alter'];$this->e();
+        echo 'Nationalität: '.$_SESSION['nation'];$this->e();
+        echo 'EMail Addresse: '.$_SESSION['email'];$this->e();
+        echo 'Handynummer: '.$_SESSION['handy'];$this->e();
+        echo '=============================================';
+        echo 'Selbstbeschreibung: '.$_SESSION['SelbstBeschreibung'];$this->e();
+        echo 'Stärken und Schwächen: '.$_SESSION['SundS'];
+        echo 'Wieso will ich mich hier bewerben: '.$_SESSION['Wieso'];
+        echo 'Wieso sollten wir uns für dich entscheiden: '.$_SESSION['WiesoDU'];
+        echo 'Refernzen: '.$_SESSION['Referenz'];
+        echo 'Wochentliche Online Zeit: '.$_SESSION['OnlineTime'];
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+    private function e(){
+        echo '<br>';
+    }
+
 }

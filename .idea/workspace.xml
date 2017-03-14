@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311fafbd-e1ee-42cf-8cfd-acbaaabd4a9b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PlexionBewerbung.iml" afterPath="$PROJECT_DIR$/.idea/PlexionBewerbung.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Builder.php" afterPath="$PROJECT_DIR$/Builder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carrds.html" afterPath="$PROJECT_DIR$/carrds.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/select.php" afterPath="$PROJECT_DIR$/select.php" />
     </list>
     <ignored path="PlexionBewerbung.iws" />
@@ -125,8 +122,8 @@
       <file leaf-file-name="select.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/select.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="100" column="61" selection-start-line="100" selection-start-column="61" selection-end-line="100" selection-end-column="61" />
+            <state relative-caret-position="721">
+              <caret line="144" column="65" selection-start-line="144" selection-start-column="65" selection-end-line="144" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -234,6 +231,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1" />
@@ -331,6 +331,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="311fafbd-e1ee-42cf-8cfd-acbaaabd4a9b" name="Default" comment="" />
@@ -340,12 +343,12 @@
       <updated>1489278774116</updated>
       <workItem from="1489278775619" duration="5758000" />
       <workItem from="1489324517138" duration="19261000" />
-      <workItem from="1489354026094" duration="5617000" />
+      <workItem from="1489354026094" duration="6271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30636000" />
+    <option name="totallyTimeSpent" value="31290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1918" height="1038" extended-state="0" />
@@ -786,8 +789,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/select.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="100" column="61" selection-start-line="100" selection-start-column="61" selection-end-line="100" selection-end-column="61" />
+        <state relative-caret-position="721">
+          <caret line="144" column="65" selection-start-line="144" selection-start-column="65" selection-end-line="144" selection-end-column="65" />
           <folding />
         </state>
       </provider>
