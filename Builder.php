@@ -33,6 +33,12 @@
         .mdl-card__media {
             margin: 0;
         }
+        .foot{
+        position: fixed; 
+        bottom: 0;
+        left: 0;
+        right: 0;
+        }
 
     </style>
 </head>
@@ -55,7 +61,14 @@
             echo '</div>
     </div>
     <div class="mdl-layout-spacer"></div>
-</div>
+    </div>
+    <footer class="mdl-mini-footer foot">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">© 2017 Raphael Scheinkoenig | ECN-Tek | Plexion.de</div>
+   </div>
+</footer>
+
+
 </body>
 </html>';
         }
@@ -65,7 +78,7 @@
              <p>Bitte wähle den Rang aus für den du dich Bewerben möchtest:</p>
             <form action="select.php" method="post">
                 <div class="mdl-select mdl-js-select mdl-select--floating-label">
-                    <select class="mdl-select__input" name="" id"rang" name="Rang">
+                    <select class="mdl-select__input" name="rang" id"rang">
                         <option value="var1">Bitte Auswählen</option>
                         <option value="developer">Developer</option>
                         <option value="builder">Builder</option>
@@ -133,15 +146,15 @@
         }
 
         public function buildThirdDeveloper(){
-            echo '<form action="sel.php" method="get">
+            echo '<form action="select.php" method="post">
             <p>Welche der Folgen Sachen beherscht du?</p>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="java">
-                    <input type="checkbox" name="java" id="JAVA" class="mdl-checkbox__input">
+                    <input type="checkbox" name="JAVA" id="java" class="mdl-checkbox__input">
                     <span class="mdl-checkbox__label">Java </span>
             </label>
                 <br>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="php">
-                <input type="checkbox" name="php" id="PHP" class="mdl-checkbox__input">
+                <input type="checkbox" name="PHP" id="php" class="mdl-checkbox__input">
                 <span class="mdl-checkbox__label">PHP</span>
             </label>
                 <br>
@@ -151,12 +164,12 @@
             </label>
                 <br>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="mysql">
-                <input type="checkbox" name="mysql" id="MYSQL" class="mdl-checkbox__input">
+                <input type="checkbox" name="MYSQL" id="mysql" class="mdl-checkbox__input">
                 <span class="mdl-checkbox__label">MySQL / MongoDB</span>
             </label>
                 <br>
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="git">
-                <input type="checkbox" name="git" id="GIT" class="mdl-checkbox__input">
+                <input type="checkbox" name="GIT" id="git" class="mdl-checkbox__input">
                 <span class="mdl-checkbox__label">Git</span>
             </label>
                 <br>
@@ -212,7 +225,7 @@
         }
 
         public function buildThird(){
-            echo '<form action="sel.php" method="get">
+            echo '<form action="select.php" method="post">
                 <br>
                 <div class="style-textfield mdl-textfield mdl-js-textfield">
                     <textarea class="mdl-textfield__input" type="text" rows= "5" name = "SelbstBeschreibung" id="SelbstBeschreibung" ></textarea>
@@ -260,6 +273,9 @@
                 </form>';
         }
 
+        public function buildReadyPage(){
+            echo'            <h3>Vielen Dank für deine Bewerbung!<br> Wir werden uns bald bei dir melden!</h3>';
+        }
 
 
     }

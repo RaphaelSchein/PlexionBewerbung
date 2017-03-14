@@ -6,22 +6,29 @@
 
     if ($functions->verfiySVariable("step")){
         switch ($_SESSION['step']){
-            case 1:
+            case "1":
                 $sel->verifyFirstStep();
                 break;
-            case 2:
+            case "2":
                 $sel->verifySecondStep();
+                break;
+            case "3":
+                echo '24';
+                $sel->verifyThirdStep();
                 break;
             case 3:
                 $sel->verifyThirdStep();
+                break;
+
         }
-        header("Location: index.php?p=1");
+        echo $_SESSION['step'];
+        header("Location: index.php?p=13");
 
     }else{
        if ($functions->verfiyPVariable("rang")){
            $sel->verifyFirstStep();
        }else {
-           header("Location: index.php?p=1");
+          header("Location: index.php?p=1");
        }
     }
 class select{
@@ -74,9 +81,9 @@ class select{
     private function verifyDev(){
         $funktions = new functions();
         if ($funktions->verfiyPVariable("JAVA")){
-            $_SESSION['java'] = true;
+            $_SESSION['java'] = "true";
         }else{
-            $_SESSION['java'] = false;
+            $_SESSION['java'] = "false";
         }
         if ($funktions->verfiyPVariable("GIT")){
             $_SESSION['git'] = true;
@@ -106,12 +113,14 @@ class select{
             $_SESSION['WiesoDU'] = $this->getPost("WiesoDU");
             $_SESSION['Referenz'] = $this->getPost("Referenz");
             $_SESSION['OnlineTime'] = $this->getPost("OnlineTime");
+            header("Location: index.php");
+            $this->call(true);
         }
     }
 
     private function verifyThird(){
         $funktions = new functions();
-        if ($funktions->verfiyPVariable("SelbstBeschreibung") && $funktions->verfiyPVariable("SundS") && $funktions->verfiyPVariable("Faehigkeitens") && $funktions->verfiyPVariable("Wieso") && $funktions->verfiyPVariable("WiesoDU") && $funktions->verfiyPVariable("Referenz") && $funktions->verfiyPVariable("OnlineTime")){
+        if ($funktions->verfiyPVariable("SelbstBeschreibung") && $funktions->verfiyPVariable("SundS") && $funktions->verfiyPVariable("Faehigkeiten") && $funktions->verfiyPVariable("Wieso") && $funktions->verfiyPVariable("WiesoDU") && $funktions->verfiyPVariable("Referenz") && $funktions->verfiyPVariable("OnlineTime")){
 
             $_SESSION['SelbstBeschreibung'] = $this->getPost("SelbstBeschreibung");
             $_SESSION['SundS'] = $this->getPost("SundS");
@@ -120,31 +129,101 @@ class select{
             $_SESSION['WiesoDU'] = $this->getPost("WiesoDU");
             $_SESSION['Referenz'] = $this->getPost("Referenz");
             $_SESSION['OnlineTime'] = $this->getPost("OnlineTime");
+            $this->call(false);
+            header("Location: index.php?r=1");
+        }else{
+            header("Location: index.php");
         }
+
     }
 
-    private function call(){
+    /**
+     * @param $dev boolean;
+     */
+    private function call($dev){
+
+        $msg = "
+[B]Daten:
+[LIST]
+[*]Vorname: VNA
+[*]Nachname: NNA
+[*]Username: UNA
+[*]Nationalität: NAT
+[*]Email: EMA
+[*]Handynummer: HANN
+[/LIST]
+Details:
+
+[SPOILER=\"Selbstbeschreibung\"]SBT[/SPOILER]
 
 
-        echo 'Bewerbung des Users '.$_SESSION['mcname']." für den Rang ".$_SESSION['rang']."<br>";
-
-        echo 'Daten: <br>';
-        echo 'Name: '.$_SESSION['vorname']." ".$_SESSION['nachname'];
-        $this->e();
-        echo 'Username: '.$_SESSION['mcname'];$this->e();
-        echo 'Alter: '.$_SESSION['alter'];$this->e();
-        echo 'Nationalität: '.$_SESSION['nation'];$this->e();
-        echo 'EMail Addresse: '.$_SESSION['email'];$this->e();
-        echo 'Handynummer: '.$_SESSION['handy'];$this->e();
-        echo '=============================================';
-        echo 'Selbstbeschreibung: '.$_SESSION['SelbstBeschreibung'];$this->e();
-        echo 'Stärken und Schwächen: '.$_SESSION['SundS'];
-        echo 'Wieso will ich mich hier bewerben: '.$_SESSION['Wieso'];
-        echo 'Wieso sollten wir uns für dich entscheiden: '.$_SESSION['WiesoDU'];
-        echo 'Refernzen: '.$_SESSION['Referenz'];
-        echo 'Wochentliche Online Zeit: '.$_SESSION['OnlineTime'];
+[SPOILER=\"Fähigkeiten\"]FÄH[/SPOILER]
 
 
+[SPOILER=\"Stärken und Schwächen\"]SundS[/SPOILER]
+
+
+[SPOILER=\"Wieso will ich mich hier bewerben\"]WIH[/SPOILER]
+
+
+[SPOILER=\"Wieso sollten wir uns für dich entscheiden\"]WID[/SPOILER]
+
+
+[SPOILER=\"Referenzen\"]RFZ[/SPOILER]
+
+
+[SPOILER=\"Wie Lang Programmierst du schon ?\"]WILA[/SPOILER]
+
+
+[SPOILER=\"Programmier Sprachen\"]PRS[/SPOILER][/B]
+
+
+";
+        $f = new functions();
+        if ($dev) {
+            $prs = "[LIST]";
+
+            if ($f->verfiySVariable("java")&&$_SESSION['java'] == "true"){
+                $prs = $prs."[*] Java";
+            }
+            if ($f->verfiySVariable("php")&&$_SESSION['php'] == "true"){
+                $prs = $prs."[*] PHP";
+            }
+            if ($f->verfiySVariable("c")&&$_SESSION['c'] == "true"){
+                $prs = $prs."[*] C / C++ / C#";
+            }
+            if ($f->verfiySVariable("myslq")&&$_SESSION['myslq'] == "true"){
+                $prs = $prs."[*] MySQL";
+            }
+            if ($f->verfiySVariable("git")&&$_SESSION['git'] == "true"){
+                $prs = $prs."[*] GIT";
+            }
+            $prs = $prs." [/LIST]";
+            $search = array("VNA", "NNA", "UNA", "NAT", "EMA", "HANN", "SBT", "FÄH", "SundS", "WIH", "WID", "RFZ", "WILA", "PRS");
+            $replace = array($_SESSION['vorname'], $_SESSION['nachname'], $_SESSION['mcname'], $_SESSION['nation'], $_SESSION['email'], $_SESSION['handy'], $_SESSION['SelbstBeschreibung'], $_SESSION['ProgrammierFähigkeiten'], $_SESSION['SundS'], $_SESSION['Wieso'], $_SESSION['WiesoDU'],$_SESSION['Referenz'], $_SESSION['WieLang'], $prs);
+        }else{
+            $search = array("VNA", "NNA", "UNA", "NAT", "EMA", "HANN", "SBT", "FÄH", "SundS", "WIH", "WID", "RFZ", "[SPOILER=\"Wie Lang Programmierst du schon ?\"]WILA[/SPOILER]", "[SPOILER=\"Programmier Sprachen\"]PRS[/SPOILER][/B]");
+            $replace = array($_SESSION['vorname'], $_SESSION['nachname'], $_SESSION['mcname'], $_SESSION['nation'], $_SESSION['email'], $_SESSION['handy'], $_SESSION['SelbstBeschreibung'], $_SESSION['Faehigkeiten'], $_SESSION['SundS'], $_SESSION['Wieso'], $_SESSION['WiesoDU'],$_SESSION['Referenz'], "","");
+        }
+        $msg = str_replace($search,$replace,$msg);
+
+        $title = urlencode("Bewerbung des Users ".$_SESSION['mcname']." für den Rang ".$_SESSION['rang']);
+        $url = "https://forum.plexion.de/api.php?";
+        $url = $url."hash=Plexion.de:JDJhJDEwJHRqLjlEMlQyVVZMU0h3MlVvSWdrbk9USWp5d0g5Y1U4RC5HejduOXpGUzRDZ0c5VWxpdXBp&";
+        $url = $url."action=createThread&";
+        $url = $url."node_id=9&";
+        $url = $url."message=".urlencode($msg)."&";
+        $url = $url."title=".$title."";
+
+        echo $url."<br><br><br>";
+
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $url
+        ));
+        $resp = curl_exec($curl);
+        curl_close($curl);
 
 
 

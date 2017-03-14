@@ -11,5 +11,4 @@ session_start();
 $_SESSION['step'] = 1;
 print_r($_GET);
 print_r($_POST);
-echo "===============================================";
 print_r($_SESSION);
