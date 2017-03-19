@@ -79,6 +79,7 @@ class select{
 
 
     private function verifyDev(){
+        echo $_SESSION['step'];
         $funktions = new functions();
         if ($funktions->verfiyPVariable("JAVA")){
             $_SESSION['java'] = "true";
@@ -113,9 +114,10 @@ class select{
             $_SESSION['WiesoDU'] = $this->getPost("WiesoDU");
             $_SESSION['Referenz'] = $this->getPost("Referenz");
             $_SESSION['OnlineTime'] = $this->getPost("OnlineTime");
-            header("Location: index.php");
+            header("Location: index.php?r=1");
             $this->call(true);
         }
+        header("Location: https://google.com");
     }
 
     private function verifyThird(){
@@ -211,7 +213,7 @@ Details:
         $url = "https://forum.plexion.de/api.php?";
         $url = $url."hash=Plexion.de:JDJhJDEwJHRqLjlEMlQyVVZMU0h3MlVvSWdrbk9USWp5d0g5Y1U4RC5HejduOXpGUzRDZ0c5VWxpdXBp&";
         $url = $url."action=createThread&";
-        $url = $url."node_id=9&";
+        $url = $url."node_id=18&";
         $url = $url."message=".urlencode($msg)."&";
         $url = $url."title=".$title."";
 

@@ -2,6 +2,8 @@
     include_once 'Builder.php';
     $builder = new Builder();
     $builder->buildHead();
+echo $_SESSION['step'];
+
 if (isset($_GET["r"])&&$_GET['r'] == "1"){
     $builder->buildReadyPage();
     $builder->buildFoot();
@@ -18,7 +20,7 @@ if (isset($_GET["r"])&&$_GET['r'] == "1"){
         //session_destroy();
     }
 
-    
+
     if (isset($_SESSION['step'])){
 
 
